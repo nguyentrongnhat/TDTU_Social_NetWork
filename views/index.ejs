@@ -27,14 +27,15 @@
 			<div class="card shadow-sm" id="<%= post._id %>">
 				<div class="card-body">
 					<div class="header-content">
-			
-						<img src="<%= post.avatar_image_src %>" class="avatar-image" height="40px" width="40px">
-						<div class="info-post">
-							<div class="user-name text">
-								<%=post.author%>
+						<a href="/user/<%= post.id_author.toString() %>" class="header-content" style="text-decoration: none;">
+							<img src="<%= post.avatar_image_src %>" class="avatar-image" height="40px"
+								width="40px">
+							<div class="info-post">
+								<div class="user-name text">
+									<%=post.author%>
+								</div>
 							</div>
-						</div>
-						
+						</a>
 						<% if(post.id_author===user._id.toString() || user.role === 'Admin'){ %>
 							<div id="option_post">
 								<div class="icon_otion_delete_update"
@@ -71,9 +72,7 @@
 					</div>
 				</div>
 				<% if (post.image_src.length> 0) { %>
-					<a href="/post/<%=post._id%>">
-						<img src="<%=post.image_src%>" class="card-img-top" alt="...">
-					</a>
+					<img src="<%=post.image_src%>" class="card-img-top" alt="...">
 					<% } if (post.video_id.length> 0){ %>
 						<iframe width="100%" height="315"
 							src="https://www.youtube.com/embed/<%=post.video_id%>"
