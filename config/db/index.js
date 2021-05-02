@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const uri = process.env.MONGODB_URI;
 
 async function connect() {
 
     try {
-        await mongoose.connect('mongodb+srv://nhatnguyen:openmongodb652143@cluster0.ajp2w.mongodb.net/AdvanceWeb?retryWrites=true&w=majority', {
+        await mongoose.connect(uri, {
             useNameUrlParser: true,
             useUnifiedTopology: true
         });

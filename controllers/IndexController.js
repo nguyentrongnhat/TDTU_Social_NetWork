@@ -96,13 +96,13 @@ class IndexController {
         let user = req.user;
         let baidang = req.body;
         let file = req.file;
-        console.log(baidang)
-        console.log(file);
+        //console.log(baidang)
+        //console.log(file);
         let { id_author, textContent, image_src, video_id } = baidang;
         if (video_id !== '') {
             baidang.video_id = getYouTubeID(video_id);
         }
-        console.log('file: ', file);
+        //console.log('file: ', file);
         baidang.image_src = '';
         if (req.file) {
             baidang.image_src = '/uploads/' + user.mssv + '/' + file.originalname;
@@ -116,13 +116,13 @@ class IndexController {
     editPost(req, res, next) {
         let user = req.user;
         let baidang = req.body;
-        console.log('id: ', baidang._id);
+        //console.log('id: ', baidang._id);
         let file = req.file;
-        console.log(file);
+        //console.log(file);
         if (baidang.video_id !== '') {
             baidang.video_id = getYouTubeID(baidang.video_id);
         }
-        console.log('file: ', file);
+        //console.log('file: ', file);
         baidang.image_src = '';
         if (req.file) {
             baidang.image_src = '/uploads/' + user.mssv + '/' + file.originalname;
@@ -197,11 +197,11 @@ class IndexController {
             .then(() => {
                 React.deleteMany({post_id: post_id})
                     .then(() => {
-                        //console.log('xoa thanh cong react');
+                        ////console.log('xoa thanh cong react');
                     });
                 Comment.deleteMany({ id_post: post_id })
                     .then(() => {
-                        //console.log('xoa thanh cong comment');
+                        ////console.log('xoa thanh cong comment');
                     });
                 return res.json({ code: 200, post_id });
             })
