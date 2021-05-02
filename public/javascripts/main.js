@@ -837,9 +837,9 @@ $(document).ready(function () {
                             </div>`
                         if (post.image_src.length > 0) { 
                             list_new_posts += 
-                            `<a href="/post/<%=post._id%>">
+                            `
                                 <img src="${post.image_src}" class="card-img-top" alt="...">
-                            </a>`
+                            `
                         }
                         if (post.video_id.length > 0) {
                             list_new_posts +=

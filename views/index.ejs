@@ -27,15 +27,14 @@
 			<div class="card shadow-sm" id="<%= post._id %>">
 				<div class="card-body">
 					<div class="header-content">
-						<a href="/user/<%= post.id_author.toString() %>" class="header-content" style="text-decoration: none;">
-							<img src="<%= post.avatar_image_src %>" class="avatar-image" height="40px"
-								width="40px">
-							<div class="info-post">
-								<div class="user-name text">
-									<%=post.author%>
-								</div>
+			
+						<img src="<%= post.avatar_image_src %>" class="avatar-image" height="40px" width="40px">
+						<div class="info-post">
+							<div class="user-name text">
+								<%=post.author%>
 							</div>
-						</a>
+						</div>
+						
 						<% if(post.id_author===user._id.toString() || user.role === 'Admin'){ %>
 							<div id="option_post">
 								<div class="icon_otion_delete_update"
