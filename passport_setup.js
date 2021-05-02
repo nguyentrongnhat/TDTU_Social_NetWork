@@ -32,6 +32,7 @@ passport.use(new GoogleStrategy({
         let display_name = profile.displayName;
         let family_name = profile.name.familyName;
         let email = profile.emails[0].value;
+        let role = 'Student';
         let avatar_img = profile.photos[0].value;
         let mssv = email.slice(0, email.indexOf('@'));
         const salt = bcrypt.genSaltSync(saltRounds);
@@ -44,7 +45,7 @@ passport.use(new GoogleStrategy({
                 //console.log(user)
                 return done(null, user);
             } else {
-                var newUser = new User({ google_id, display_name, family_name, email, mssv, password, avatar_img });
+                var newUser = new User({ google_id, display_name, family_name, role, email, mssv, password, avatar_img });
                 let path = './public/uploads/' + mssv;
 
                 fs.access(path, function(error) {

@@ -6,7 +6,7 @@ const User = new Schema({
     display_name: {type: String, default: ''},
     family_name: {type: String, default: ''},
     email: {type: String, default: ''},
-    role: {type: String, deufault: 'student'},
+    role: {type: String, deufault: 'Student'},
     mssv: {type: String, default: ''},
     password: {type: String},
     avatar_img: {type: String, default: 'https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png'}
