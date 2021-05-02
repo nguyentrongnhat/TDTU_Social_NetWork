@@ -21,7 +21,7 @@ passport.deserializeUser(function (id, done) {
 passport.use(new GoogleStrategy({
     clientID: '859864493982-ec1d0figs21rvp9raajfv2pk60ko5o52.apps.googleusercontent.com',
     clientSecret: 'nkKzvGSiaov5Lw1bFvkaOm3f',
-    callbackURL: "http://localhost:8181/login/auth/google/callback"
+    callbackURL: "https://tdtu-student-portal.herokuapp.com/login/auth/google/callback"
 },
     function (accessToken, refreshToken, profile, done) {
         let google_id = profile.id;
