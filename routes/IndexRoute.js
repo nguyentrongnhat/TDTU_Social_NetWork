@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/IndexController');
 
+const fileUploader = require('../cloudinary_setup');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -14,10 +15,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 router.get('/', indexController.showIndexPage);
-router.post('/post/create', upload.single('image_src'), indexController.createPost);
+router.post('/post/create',  fileUploader.single('image_src'), indexController.createPost);
 router.post('/post/getOne', indexController.getPost);
 router.post('/post/delete', indexController.deletePost);
-router.post('/post/edit', upload.single('image_src'), indexController.editPost);
+router.post('/post/edit', fileUploader.single('image_src'), indexController.editPost);
 router.get('/logout', indexController.SignOut);
 router.post('/react/create', indexController.createReact);
 router.post('/react/delete', indexController.deleteReact);

@@ -19,6 +19,10 @@ passport.deserializeUser(function (id, done) {
     });
 });
 passport.use(new GoogleStrategy({
+    //clientID: '859864493982-oh0qctooo3s91qkq8lgiit67n4uemvsa.apps.googleusercontent.com',
+    //clientSecret: 'yy9VhCFyt8zTdcXduA9eH358',
+    //callbackURL: "http://localhost:8181/login/auth/google/callback"
+
     clientID: '859864493982-ec1d0figs21rvp9raajfv2pk60ko5o52.apps.googleusercontent.com',
     clientSecret: 'nkKzvGSiaov5Lw1bFvkaOm3f',
     callbackURL: "https://tdtu-student-portal.herokuapp.com/login/auth/google/callback"

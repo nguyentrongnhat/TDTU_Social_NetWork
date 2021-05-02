@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 const cookieParser = require('cookie-parser');
 const { notify } = require('../routes/NotifyRoute');
-
+const cloudinary = require('../cloudinary_setup');
 class IndexController {
     showIndexPage(req, res, next) {
         let user = req.user;
@@ -105,7 +105,10 @@ class IndexController {
         //console.log('file: ', file);
         baidang.image_src = '';
         if (req.file) {
-            baidang.image_src = '/uploads/' + user.mssv + '/' + file.originalname;
+            //let result = cloudinary.uploader.upload(req.file.path)
+            let result = req.file.path;
+            //console.log('file da upload: ' + req.file.path);
+            baidang.image_src = result;//'/uploads/' + user.mssv + '/' + file.originalname;
         }
        
         let post = new Post(baidang);

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/UserController');
 
+const fileUploader = require('../cloudinary_setup');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,7 +18,7 @@ router.get('/:id', userController.showUserPage);
 router.post('/load/timeline', userController.loadUserPage);
 router.post('/edit/displayname', userController.editDisplayName);
 router.post('/edit/account', userController.editAccount);
-router.post('/edit/avatar', upload.single('image_src'), userController.editAvatar);
+router.post('/edit/avatar', fileUploader.single('image_src'), userController.editAvatar);
 router.get('/edit/:id', userController.showEditPage);
 router.get('/delete/:id', userController.deleteUser);
 module.exports = router;

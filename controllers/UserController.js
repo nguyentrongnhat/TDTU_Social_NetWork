@@ -215,6 +215,7 @@ class UserController {
         }
         const salt = bcrypt.genSaltSync(saltRounds);
         let password = bcrypt.hashSync(new_password, salt);
+        console.log('passoword: ' + password);
         User.findOne({ _id: id })
             .then((edit_user) => {
                 edit_user.password = password;
@@ -235,7 +236,9 @@ class UserController {
                 let file = req.file;
                 //console.log('file: ', file);
                 if (req.file) {
-                    edit_user.avatar_img = '/uploads/' + edit_user.mssv + '/' + file.originalname;
+                    let result = req.file.path;
+                    console.log(result);
+                    edit_user.avatar_img = result;//'/uploads/' + edit_user.mssv + '/' + file.originalname;
                 }
                 edit_user.save();
                 if (user._id.toString() === id) {
