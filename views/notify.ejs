@@ -1,0 +1,29 @@
+<div class="notify-main-block">
+    <div class="card" style="width: 100%">
+        <div class="card-body">
+            <h5 class="card-title">Tất cả thông báo</h5>
+            <ul class="list-notify">
+                <% let i = 0 %>
+                <% for (var notify of list_notify) { %>
+                    <%if (i%2==0) {%>
+                        <a href="notify/detail/<%= notify._id %>" class="link_notify">
+                            <li class="notify-item color-even">
+                                <div class="title-notify"><strong><%= notify.title.toUpperCase() %></strong></div>
+                                <div class="department">[<%= notify.department %>]</div>
+                            </li>
+                        </a>
+                    <%} else {%>
+                        <a href="notify/detail/<%= notify._id %>" class="link_notify">
+                            <li class="notify-item color-odd">
+                                <div class="title-notify"><%= notify.title.toUpperCase() %></div>
+                                <div class="department">[<%= notify.department %>]</div>
+                            </li>
+                        </a>
+                    <%}%>
+                    <% i++ %>
+                <% } %>
+        
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,150 @@
+<%if( locals.message ) {%>
+	<div>
+		<%= message %>
+	</div>
+	<%}%>
+
+		<div class="cotent-block">
+			<% if (locals.page_user._id.toString()===locals.user._id.toString()) { %>
+				<div class="card card-thinking shadow-sm">
+					<div class="card-body">
+						<div class="header-content">
+							<a href="/user/<%= user._id.toString() %>">
+								<img src="<%= user.avatar_img %>" class="avatar-image" height="40px" width="40px">
+							</a>
+							<div type="button" class="answer-post">
+								<div class="hint-answer-post">
+									<%= user.family_name %> ơi, bạn đang nghĩ gì thế? %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% } %>
+
+					<% if (locals.posts) { %>
+						<% for(let post of posts) { %>
+							<div class="card shadow-sm user_page_post card_post_user_page" id="<%= post._id %>">
+								<div class="card-body">
+									<div class="header-content">
+										<a href="/user/<%= post.id_author.toString() %>" class="header-content"
+											style="text-decoration: none;">
+											<img src="<%= post.avatar_image_src %>" class="avatar-image" height="40px"
+												width="40px">
+											<div class="info-post">
+												<div class="user-name text">
+													<%=post.author%>
+												</div>
+											</div>
+										</a>
+										<% if(post.id_author===user._id.toString() || user.role === 'Admin'){ %>
+											<div id="option_post">
+												<div class="icon_otion_delete_update"
+													data-update_delete_option="<%= post._id %>">
+													<i class="fas fa-ellipsis-v"
+														data-update_delete_option="<%= post._id %>"></i>
+												</div>
+
+												<div class="update_delete_option"
+													id="update_delete_option<%= post._id %>">
+													<ul class="list_update_delete_option">
+														<li class="item_update_delete_option delete_post_option"
+															data-post_id="<%= post._id %>">
+															<i class="far fa-trash-alt"
+																data-post_id="<%= post._id %>"></i>
+															<p class="text_item_update_delete_option delete"
+																data-post_id="<%= post._id %>">Xóa</p>
+														</li>
+														<li class="item_update_delete_option edit_post_option"
+															data-post_id="<%= post._id %>">
+															<i class="far fa-edit" data-post_id="<%= post._id %>"></i>
+															<p class="text_item_update_delete_option edit"
+																data-post_id="<%= post._id %>">Sửa</p>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<% } %>
+									</div>
+									<div class="text-post">
+										<p class="card-text text">
+											<%=post.textContent%>
+										</p>
+									</div>
+								</div>
+								<% if (post.image_src.length> 0) { %>
+									<a href="/post/<%=post._id%>">
+										<img src="<%=post.image_src%>" class="card-img-top" alt="...">
+									</a>
+									<% } if (post.video_id.length> 0){ %>
+										<iframe width="100%" height="315"
+											src="https://www.youtube.com/embed/<%=post.video_id%>"
+											title="Iframe Youtube"></iframe>
+										<% } %>
+											<div class="card-body card-body-react-block">
+												<div class="react-infor">
+													<div class="react-infor__like">
+														<i class="fas fa-thumbs-up"></i>&#8194<span class="text"
+															id="like_num<%= post._id %>">
+															<%= post.like %>
+														</span>
+													</div>
+													<div class="react-infor__comment">
+														<span class="text" id="cmt_num<%= post._id %>">
+															<%=post.comment%>
+														</span>&#8194<span>bình luận</span>
+													</div>
+												</div>
+												<div class="separate-line"></div>
+												<div class="btn-react">
+													<div class="btn-react__like" data-user_id="<%= user._id %>"
+														data-post_id="<%= post._id %>">
+														<% if(post.user_react !==user._id.toString()){ %>
+															<i class="far fa-thumbs-up"
+															data-user_id="<%= user._id %>"
+															data-post_id="<%= post._id %>"
+															id="like_btn<%= post._id %>"></i>
+														<% } else { %>
+															<i class="fas fa-thumbs-up"
+															data-user_id="<%= user._id %>"
+															data-post_id="<%= post._id %>"
+															id="like_btn<%= post._id %>"></i>
+														<% } %>
+															<span class="text" data-user_id="<%= user._id %>"
+															data-post_id="<%= post._id %>">Thích</span>
+
+													</div>
+													<div class="btn-react__comment" data-post_id="<%= post._id %>">
+														<i class="far fa-comments" data-post_id="<%= post._id %>"></i>
+														<span class="text" data-post_id="<%= post._id %>">Bình
+															luận</span>
+													</div>
+												</div>
+												<div class="comment_place_block"
+													id="comment_place_block<%= post._id %>">
+													<div class="separate-line"></div>
+													<div class="comment_block">
+														<div class="write_comment_blok">
+															<img src="<%= user.avatar_img %>" alt="avatar user"
+																class="avatar_comment">
+															<input type="email" class="form-control comment_input"
+																placeholder="Viết bình luận của bạn"
+																data-id_author="<%= user._id %>"
+																id="inputComment<%= post._id %>"
+																data-id_post="<%= post._id %>"
+																data-author_name="<%= user.display_name %>"
+																data-author_avatar="<%= user.avatar_img %>">
+														</div>
+
+														<div class="list_comment_block">
+															<ul class="comment_list"
+																id="block_comment_display<%= post._id %>">
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+							</div>
+							<% } %>
+								<% } %>
+		</div>

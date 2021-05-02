@@ -1,0 +1,14 @@
+<div class="notify-main-block">
+    <div class="card" style="width: 100%">
+        <div class="card-header" style="display: flex; justify-content: space-between;">
+            <h5><%= notify.department %></h5>
+            <p>Ngày đăng: <%= notify.createdAt.toString().slice(0, 15) %></p>
+        </div>
+        <div class="card-body">
+            <h3 style="color: #0061AD; text-align: center;">
+                <%= notify.title %>
+            </h3>
+            <%=  notify.content %>
+        </div>
+    </div>
+</div>

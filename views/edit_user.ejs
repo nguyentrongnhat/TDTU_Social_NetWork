@@ -1,0 +1,83 @@
+    <div style="display: flex; justify-content: center;" class="edit-block-page">
+        <div class="card edit-page">
+            <div class="card-header">
+                <h5 class="card-title title-card-edit-page">Chỉnh sửa thông tin người dùng</h5>
+            </div>
+            <div class="card-header">
+                <div class="block-option-edit-btn">
+                    <button class="btn btn-primary" id="edit-name-btn">Tên hiển thị</button>
+                    <button class="btn btn-primary" id="edit-account-btn">Thông tin đăng nhập</button>
+                    <%if(user.role === 'Admin' && user._id.toString() !== id ){%>
+                        
+                    <% } else{ %>
+                        <button class="btn btn-primary" id="edit-avatar-btn">Ảnh đại diện</button>
+                    <%}%>
+    
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-block">
+                    <div class="formName form-edit">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/user/edit/displayname" class="form" method="post">
+                                    <div class="form-group">
+                                        <label for="#">Tên hiển thị</label>
+                                        <input type="text" class="form-control" name="display_name" id="" placeholder="">
+                                    </div>
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        <input type="submit" class="btn btn-primary" style="width: 100%;" value="Cập nhật">
+                                    </div>
+                                    <input type="hidden" value="<%= id %>" name="id">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formAccount  form-edit">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/user/edit/account" class="form" method="post">
+                                    <div class="form-group">
+                                        <label for="#">Mật khẩu hiện tại</label>
+                                        <input type="password" class="form-control" name="current_password" id="" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="#">Mật khẩu mới</label>
+                                        <input type="password" class="form-control" name="new_password" id="" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="#">Nhập lại mật khẩu mới</label>
+                                        <input type="password" class="form-control" name="renew_password" id="" placeholder="">
+                                    </div>
+                                    <input type="hidden" value="<%= id %>" name="id">
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        <input type="submit" class="btn btn-primary" style="width: 100%;" value="Cập nhật">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formAvatar form-edit">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/user/edit/avatar" enctype="multipart/form-data" class="form" method="post">
+                                    <div class="input-group">
+                                        <input type="file" name="image_src" class="form-control" aria-label="Default"
+                                            aria-describedby="inputGroup-sizing-default" id="src_img" accept="image/*">
+                                    </div>
+                                    <input type="hidden" value="<%= id %>" name="id">
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        <input type="submit" class="btn btn-primary" style="width: 100%;" value="Cập nhật">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    

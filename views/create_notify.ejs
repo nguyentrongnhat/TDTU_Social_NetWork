@@ -1,0 +1,32 @@
+<div class="col" style="width: 100%; display: flex; justify-content: center;">
+    <div class="card" style="width: 75%;">
+        <div class="card-header">
+            <h5>Tạo thông báo</h5>
+        </div>
+        <div class="card-body">
+            <form action="/notify/create" class="form" method="post">
+                <div class="form-group">
+                    <label for="#">Tiêu đề thông báo</label>
+                    <input type="text" class="form-control" name="title" id="" placeholder="Tiêu đề thông báo">
+                </div>
+                <div class="form-group">
+                    <label for="#">Chủ đề thông báo</label>
+                    <select class="form-control" name="topic" id="exampleFormControlSelect1">
+                        <option value="tuition">Học phí</option>
+                        <option value="academic">Học vụ</option>
+                        <option value="activity">Hoạt động</option>
+                        <option value="job">Thông tin tuyển dụng</option>
+                        <option value="scholarship">Học bổng</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="#">Nội dung thông báo</label>
+                    <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="14"></textarea>
+                </div>
+                <div class="form-group" style="margin-top: 10px;">
+                    <input type="submit" class="btn btn-primary" style="width: 100%;" value="Đăng thông báo">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

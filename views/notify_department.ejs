@@ -1,0 +1,16 @@
+<div class="row" style="margin-top:10px;">
+    <% for(let dep of departments) { %>
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <a href="/notify/department/<%= dep.display_name %>" class="department_item">
+            <div class="card notify-department-card" style="height: 210px; width: 170px;">
+                <div class="card-header">
+                    <%= dep.display_name %>
+                </div>
+                <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="<%= dep.avatar_img %>" alt="" width="130px" height="130px">
+                </div>
+            </div>
+        </a>
+    </div>
+    <% } %>
+</div>
