@@ -6,6 +6,7 @@ const Notify = require('../models/Notify');
 const getYouTubeID = require('get-youtube-id');
 const mongoose = require('mongoose');
 
+const io = require('../index');
 const cookieParser = require('cookie-parser');
 const { notify } = require('../routes/NotifyRoute');
 const cloudinary = require('../cloudinary_setup');
@@ -113,6 +114,7 @@ class IndexController {
        
         let post = new Post(baidang);
         post.save();
+        io.realtime_post(user.display_name);
         res.json({ post, user });
     }
 

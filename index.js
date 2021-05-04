@@ -42,3 +42,7 @@ const io = socketio(httpServer)
 module.exports.realtime_notify = function realtime_notify (department) {
     io.sockets.emit('broadcast', `${department} đã đăng thông báo mới`);
 };
+
+module.exports.realtime_post = function realtime_post (user_name) {
+    io.sockets.emit('broadcast', `${user_name} vừa đăng bài viết mới`);
+};
