@@ -9,7 +9,7 @@ const User = new Schema({
     role: {type: String, deufault: 'Student'},
     mssv: {type: String, default: ''},
     password: {type: String},
-    avatar_img: {type: String, default: 'https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png'}
+    avatar_img: {type: String, default: 'https://res.cloudinary.com/tdtu/image/upload/v1620969106/uqqfscatfsnb98s85xge.png'}
 }, {
     timestamps: true
 })
