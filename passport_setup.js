@@ -23,9 +23,9 @@ passport.use(new GoogleStrategy({
     //clientSecret: 'yy9VhCFyt8zTdcXduA9eH358',
     //callbackURL: "http://localhost:8181/login/auth/google/callback"
 
-    clientID: '859864493982-ec1d0figs21rvp9raajfv2pk60ko5o52.apps.googleusercontent.com',
-    clientSecret: 'nkKzvGSiaov5Lw1bFvkaOm3f',
-    callbackURL: "https://tdtu-student-portal.herokuapp.com/login/auth/google/callback"
+    clientID: '859864493982-49kopgig79bt4r8jr19uign376f8mhgu.apps.googleusercontent.com',
+    clientSecret: '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',
+    callbackURL: "https://tdtu-social.herokuapp.com/login/auth/google/callback"
 },
     function (accessToken, refreshToken, profile, done) {
         let google_id = profile.id;
